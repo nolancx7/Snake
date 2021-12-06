@@ -139,7 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.c" />
+    <ClCompile Include="ConsoleTools.c" />
+    <ClCompile Include="snakeGame.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ConsoleTools.h" />
+    <ClInclude Include="snakeGame.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
