@@ -154,6 +154,8 @@ void showCursor(void) {
 	lpConCurInfo.dwSize = 1;
 	SetConsoleCursorInfo(hStdout, &lpConCurInfo);
 }
+
+
 int setWriteColor(WORD col) {
 
 	WORD colAttrib = 0;
@@ -233,6 +235,7 @@ int setWriteColor(WORD col) {
 
 	return 0;
 }
+
 int setBackGroundColor(WORD col) {
 
 	WORD colAttrib = 0;

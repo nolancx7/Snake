@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleTools.c" />
+    <ClCompile Include="main.c" />
     <ClCompile Include="snakeGame.c" />
   </ItemGroup>
   <ItemGroup>

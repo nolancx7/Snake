@@ -1,10 +1,14 @@
 
 #pragma once 
 
-#define TAILLEMAX 30
-#define TAILLECORPS 5
+#define TAILLEMAX 30 //taille de la grille qui est en 30x30 
+#define TAILLECORPS 5 //taille du corps de la chenille (au début)
 
-int *grille;
+#define pomme '@'
+#define corps '\1'
+#define space ' '
+
+char* grille;
 
 void initGrille();
 
