@@ -13,35 +13,57 @@ void color(int t, int f)
 	SetConsoleTextAttribute(H, f * 16 + t);
 }
 
-void initGrille(char *tab) {
+/*
+t: couleur de ton char
+f : couleur du fond
 
-	for (int y = 0; y < TAILLEMAX; y++) {
-		for (int x = 0; x < TAILLEMAX; x++) {
-			*(tab + (y * TAILLEMAX + x)) = space;
+0 : noir
+1 : bleu foncé
+2 : vert
+3 : bleu - gris
+4 : marron
+5 : pourpre
+6 : kaki
+7 : gris clair
+8 : gris
+9 : bleu
+10 : vert fluo
+11 : turquoise
+12 : rouge
+13 : rose fluo
+14 : jaune fluo
+15 : blanc
+*/
+
+void initGrille(char* tab) {
+
+	for (int y = 0; y < SIZEY; y++) {
+		for (int x = 0; x < SIZEX; x++) {
+			*(tab + (y * SIZEX + x)) = space;
 		}
 	}
-	return ;
+	return;
 }
 
 void creationCorps(char* tab) {
 
 	int x = 3;
 	for (int y = 0; y < TAILLECORPS; y++) {
-		*(tab + y * TAILLEMAX + x) = corps;
+		*(tab + y * SIZEX + x) = corps;
 	}
 	return;
 }
 
-void creationPomme(char * tab) {
+void creationPomme(char* tab) {
 
 	int x, y;
 
 	for (int i = 0; i < 5; i++) {
 		do {
-			 x = rangedRand(0, 30);
-			 y = rangedRand(0, 30);
+			x = rangedRand(0, SIZEX);
+			y = rangedRand(0, SIZEY);
 		} while ((x == 3) && (y <= TAILLECORPS));
-		*(tab + y * TAILLEMAX + x) = pomme;
+		*(tab + y * SIZEX + x) = pomme;
 	}
 }
 
@@ -50,11 +72,13 @@ void afficheGrille(char* tab) {
 
 	hideCursor();
 	moveCursor(0, 0);
-	for (int y = 0; y < TAILLEMAX; y++) {
-		for (int x = 0; x < TAILLEMAX; x++) {
+	for (int y = 0; y < SIZEY; y++) {
+		for (int x = 0; x < SIZEX; x++) {
 			moveCursor(x, y);
-			color(10, 0);
-			plotChar(*(tab + (y * TAILLEMAX + x)));
+			if (*(tab + (y * SIZEX + x)) == pomme) { color(12, 0); }
+			if (*(tab + (y * SIZEX + x)) == space) { color(15, 0); }
+			if (*(tab + (y * SIZEX + x)) == corps) { color(10, 0); }
+			plotChar(*(tab + (y * SIZEX + x)));
 			color(15, 0);
 		}
 	}
@@ -62,3 +86,31 @@ void afficheGrille(char* tab) {
 
 }
 
+void saveTab(int X, int Y, char* tab,int t) {
+
+	if (*(tab + (tete.Y + 1) * SIZEY + tete.X) == *(tab + tete.Y * SIZEY + tete.X))
+	{
+		for (int i = 0; i < t; i++) {
+			*(tab + (tete.Y - i + 1) * SIZEY + tete.X) = *(tab + (tete.Y - i) * SIZEY + tete.X);
+		}
+	}
+	if (*(tab + (tete.Y - 1) * SIZEY + tete.X) == *(tab + tete.Y * SIZEY + tete.X))
+	{
+		for (int i = 0; i < t; i++) {
+			*(tab + (tete.Y - i - 1) * SIZEY + tete.X) = *(tab + (tete.Y - i) * SIZEY + tete.X);
+		}
+	}
+	if (*(tab + tete.Y * SIZEY + (tete.X+1)) == *(tab + tete.Y * SIZEY + tete.X))
+	{
+		for (int i = 0; i < t; i++) {
+			*(tab + tete.Y * SIZEY + (tete.X - i + 1)) = *(tab + tete.Y * SIZEY + (tete.X - i));
+		}
+	}
+	if (*(tab + tete.Y * SIZEY + (tete.X - 1)) == *(tab + tete.Y * SIZEY + tete.X))
+	{
+		for (int i = 0; i < t; i++) {
+			*(tab + tete.Y * SIZEY + (tete.X - i - 1)) = *(tab + tete.Y * SIZEY + (tete.X - i));
+		}
+	}
+	
+}
