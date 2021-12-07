@@ -85,32 +85,3 @@ void afficheGrille(char* tab) {
 	return;
 
 }
-
-void saveTab(int X, int Y, char* tab,int t) {
-
-	if (*(tab + (tete.Y + 1) * SIZEY + tete.X) == *(tab + tete.Y * SIZEY + tete.X))
-	{
-		for (int i = 0; i < t; i++) {
-			*(tab + (tete.Y - i + 1) * SIZEY + tete.X) = *(tab + (tete.Y - i) * SIZEY + tete.X);
-		}
-	}
-	if (*(tab + (tete.Y - 1) * SIZEY + tete.X) == *(tab + tete.Y * SIZEY + tete.X))
-	{
-		for (int i = 0; i < t; i++) {
-			*(tab + (tete.Y - i - 1) * SIZEY + tete.X) = *(tab + (tete.Y - i) * SIZEY + tete.X);
-		}
-	}
-	if (*(tab + tete.Y * SIZEY + (tete.X+1)) == *(tab + tete.Y * SIZEY + tete.X))
-	{
-		for (int i = 0; i < t; i++) {
-			*(tab + tete.Y * SIZEY + (tete.X - i + 1)) = *(tab + tete.Y * SIZEY + (tete.X - i));
-		}
-	}
-	if (*(tab + tete.Y * SIZEY + (tete.X - 1)) == *(tab + tete.Y * SIZEY + tete.X))
-	{
-		for (int i = 0; i < t; i++) {
-			*(tab + tete.Y * SIZEY + (tete.X - i - 1)) = *(tab + tete.Y * SIZEY + (tete.X - i));
-		}
-	}
-	
-}

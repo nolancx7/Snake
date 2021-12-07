@@ -5,7 +5,7 @@
 #define SIZEY 30 
 #define TAILLECORPS 5 //taille du corps de la chenille (au début)
 #define NBPOMMES 5
-
+#define TAILLECORPSMAX TAILLECORPS + NBPOMMES 
 #define pomme '@'
 #define corps '\1'
 #define space ' '
@@ -16,11 +16,9 @@ typedef struct pos {
 	int Y;
 }POSITION;
 
-POSITION tete ;
+POSITION snake;
 
-
-
-char* grille;
+char* grille,tmpTab;
 
 void initGrille();
 
