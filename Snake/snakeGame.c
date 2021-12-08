@@ -75,9 +75,9 @@ void afficheGrille(char* tab) {
 	for (int y = 0; y < SIZEY; y++) {
 		for (int x = 0; x < SIZEX; x++) {
 			moveCursor(x, y);
-			if (*(tab + (y * SIZEX + x)) == pomme) { color(12, 0); }
-			if (*(tab + (y * SIZEX + x)) == space) { color(15, 0); }
-			if (*(tab + (y * SIZEX + x)) == corps) { color(10, 0); }
+			if (*(tab + (y * SIZEX + x)) == pomme) { color(12, 1); }
+			if (*(tab + (y * SIZEX + x)) == space) { color(0, 1); }
+			if (*(tab + (y * SIZEX + x)) == corps) { color(10, 10); }
 			plotChar(*(tab + (y * SIZEX + x)));
 			color(15, 0);
 		}

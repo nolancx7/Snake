@@ -2,13 +2,13 @@
 #pragma once 
 
 #define SIZEX 30 
-#define SIZEY 30 
+#define SIZEY 15
 #define TAILLECORPS 5 //taille du corps de la chenille (au début)
 #define NBPOMMES 5
 #define TAILLECORPSMAX TAILLECORPS + NBPOMMES 
 #define pomme '@'
 #define corps '\1'
-#define space ' '
+#define space '_'
 
 
 typedef struct pos {
