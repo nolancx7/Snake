@@ -7,7 +7,7 @@
 #define NBPOMMES 5
 #define TAILLECORPSMAX TAILLECORPS + NBPOMMES 
 #define pomme '@'
-#define corps '\1'
+#define corps '\xDB'
 #define space '_'
 
 

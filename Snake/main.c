@@ -24,6 +24,7 @@ int main(int argc, char** argv) {
 	}
 
 	POSITION snake[TAILLECORPSMAX] = { {3,0},{3,1},{3,2},{3,3},{3,4},{0,0},{0,0},{0,0},{0,0},{0,0} };
+
 	//Après test snake vers le bas par exemple , on aura :
 	//POSITION snake[TAILLECORPSMAX] = { {3,1},{3,2},{3,3},{3,4},{3,5},{0,0},{0,0},{0,0},{0,0},{0,0} };
 
